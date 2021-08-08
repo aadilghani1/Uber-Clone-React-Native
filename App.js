@@ -10,6 +10,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MapScreen from "./screens/MapScreen";
 import EatsScreen from "./screens/EatsScreen";
 import { Platform } from "react-native";
+import IntroScreen from "./screens/IntroScreen";
+import ConfirmRideScreen from "./screens/ConfirmRideScreen";
 //set up redux
 
 export default function App() {
@@ -25,10 +27,19 @@ export default function App() {
           >
             <Stack.Navigator>
               <Stack.Screen
+                name="IntroScreen"
+                component={IntroScreen}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
                 name="HomeScreen"
                 component={HomeScreen}
                 options={{
                   headerShown: false,
+                  gestureEnabled: false,
+                  headerLeft: null,
                 }}
               />
               <Stack.Screen
@@ -41,6 +52,13 @@ export default function App() {
               <Stack.Screen
                 name="EatsScreen"
                 component={EatsScreen}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="ConfirmRideScreen"
+                component={ConfirmRideScreen}
                 options={{
                   headerShown: false,
                 }}

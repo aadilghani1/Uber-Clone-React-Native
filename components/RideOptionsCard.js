@@ -11,7 +11,9 @@ import {
 import tw from "tailwind-react-native-classnames";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/core";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setCarInformation } from "../slices/navSlice";
+
 import { selectTravelTimeInformation } from "../slices/navSlice";
 
 const data = [
@@ -44,6 +46,17 @@ const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
   const travelTimeInformation = useSelector(selectTravelTimeInformation);
+  const dispatch = useDispatch();
+
+  const confirmScreenRedirect = () => {
+    dispatch(
+      setCarInformation({
+        selectedCar: selected,
+        travelTime: travelTimeInformation,
+      })
+    );
+    navigation.navigate("ConfirmRideScreen");
+  };
   return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
       <View>
@@ -78,7 +91,7 @@ const RideOptionsCard = () => {
             />
             <View style={tw`-ml-6`}>
               <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text>{travelTimeInformation?.duration?.text} Travel Time</Text>
+              <Text>{travelTimeInformation?.duration?.text} </Text>
             </View>
             <Text style={tw`text-xl`}>
               {new Intl.NumberFormat("en-gb", {
@@ -99,7 +112,10 @@ const RideOptionsCard = () => {
           disabled={!selected}
           style={tw`bg-black py-3 mx-3 mb-3 mt-1 ${!selected && "bg-gray-300"}`}
         >
-          <Text style={tw`text-center text-white text-xl`}>
+          <Text
+            style={tw`text-center text-white text-xl`}
+            onPress={confirmScreenRedirect}
+          >
             Choose {selected?.title}
           </Text>
         </TouchableOpacity>
