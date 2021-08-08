@@ -17,8 +17,19 @@ const EatsScreen = () => {
       .then((data) => setEatsData(data));
   }, []);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={tw`flex items-center`}>
+      <Image
+        style={{
+          width: 100,
+          height: 100,
+          resizeMode: "contain",
+        }}
+        source={{
+          uri: "https://logodownload.org/wp-content/uploads/2019/05/uber-eats-logo.png",
+        }}
+      />
       <FlatList
+        style={tw`w-full`}
         data={eatsData?.meals}
         keyExtractor={(item) => item.idMeal}
         renderItem={({ item: { idMeal, strMeal, strMealThumb }, item }) => (
@@ -26,18 +37,18 @@ const EatsScreen = () => {
             style={tw`flex-row items-center justify-between px-10 mb-2`}
           >
             <Image
-              style={[
-                tw`rounded-md`,
-                {
-                  width: 100,
-                  height: 100,
-                  resizeMode: "contain",
-                },
-              ]}
+              style={{
+                width: 100,
+                height: 100,
+                resizeMode: "contain",
+                borderRadius: 10,
+              }}
               source={{ uri: strMealThumb }}
             />
-            <View style={tw`-ml-6`}>
+
+            <View style={tw`-ml-6 flex items-end`}>
               <Text style={tw`font-semibold`}>{strMeal}</Text>
+              <Text style={tw`text-xs text-gray-400 `}>Indian</Text>
             </View>
           </TouchableOpacity>
         )}
