@@ -48,7 +48,7 @@ const ConfirmRideScreen = () => {
         <Animated.View
           style={[
             {
-              transform: [{ translateX: -50 }],
+              transform: [{ translateX: -40 }],
               height: 100,
               opacity,
             },
@@ -56,7 +56,7 @@ const ConfirmRideScreen = () => {
         >
           <Text style={tw`text-lg font-semibold`}>Your ride is on the way</Text>
           <Text
-            style={[tw`text-green-500`, { transform: [{ translateX: -20 }] }]}
+            style={[tw`text-green-500`, { transform: [{ translateX: -3 }] }]}
           >{`Estimated travel time ${carInformation?.travelTime?.duration?.text}`}</Text>
         </Animated.View>
       </Animated.View>
