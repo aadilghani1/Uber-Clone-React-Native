@@ -8,4 +8,4 @@ This project consists of various features and implementation of tons of API's fr
 
 ## Video Demonstration
 
-![Sample](UberDemonstration.mp4)
+![Sample](ubergif.gif)
