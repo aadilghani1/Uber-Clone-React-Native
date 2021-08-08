@@ -8,4 +8,5 @@ This project consists of various features and implementation of tons of API's fr
 
 ## Video Demonstration
 
+[Click me to get an idea of how the app looks like](https://drive.google.com/file/d/1kNt3tPSt_C99yvkPuvZibpJSIMnOJzVb/view?usp=sharing)
 ![Sample](ubergif.gif)
